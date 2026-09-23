@@ -1,0 +1,14 @@
+{
+  "id": "dpapi_ng",
+  "name": "DPAPI-NG (offline root key)",
+  "description": "Offline-only DPAPI-NG SID-descriptor decryption from an explicitly supplied KDS root-key JSON file.",
+  "file_patterns": ["*.dpapi-ng", "*.ncrypt"],
+  "web": {
+    "input_label": "DPAPI-NG artifact",
+    "workflow_help": "Use this tab only. Tab 1 and Unlock key are not needed; add the KDS root-key JSON below.",
+    "help": "Only locally supplied KDS root keys are tried; DNS and RPC fallback are disabled.",
+    "fields": [
+      {"name": "dpapi_ng_root_key", "kind": "file", "label": "KDS root-key JSON", "help": "Exported root-key record or list of records."}
+    ]
+  }
+}

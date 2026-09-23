@@ -1,0 +1,18 @@
+{
+  "id": "certificate_pfx",
+  "name": "Certificate / PFX bundle",
+  "description": "Match a certificate to a private key and create a PKCS#12/PFX bundle.",
+  "file_patterns": [],
+  "web": {
+    "input_label": "private key, CAPI/CNG key, or a folder of them",
+    "workflow_help": "Drop one PEM/DER private key, one encrypted CAPI/CNG key, or a whole folder of keys. For encrypted CAPI/CNG keys, also add their DPAPI masterkey material in 2. Unlock key. Tab 1 is not used.",
+    "help": "Recovers each key (a ready PEM/DER key, including password-protected PEM/DER, or a CAPI/CNG key decrypted with 2. Unlock key material) and matches it to a certificate by public key. Drop one certificate or a folder (for example a copied SystemCertificates\\My\\Certificates directory). Each match is reported by the certificate SHA1 thumbprint and bundled into its own PFX.",
+    "fields": [
+      {"name": "certificate", "kind": "file", "label": "matching certificate or certs folder", "help": "PEM, DER, or serialized Windows certificate; a single file or a dropped folder of certificates."},
+      {"name": "key_password", "kind": "password", "label": "Private-key password", "help": "For password-protected PEM/DER key input; one value is applied to the supplied key or key folder.", "optional": true},
+      {"name": "pfx_password", "kind": "password", "label": "New PFX password", "help": "Password that will protect the generated PFX."},
+      {"name": "empty_pfx_password", "kind": "checkbox", "label": "Create unencrypted PFX", "help": "Use only when an intentionally unencrypted PFX is required."},
+      {"name": "pfx_password_file", "kind": "file", "label": "PFX password file", "help": "Alternative to entering the new PFX password above.", "optional": true}
+    ]
+  }
+}

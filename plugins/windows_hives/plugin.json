@@ -1,0 +1,12 @@
+{
+  "id": "windows_hives",
+  "name": "Windows SYSTEM/SECURITY/SAM hives",
+  "description": "Offline DPAPI_SYSTEM extraction and optional local SAM hash export from collected registry hives.",
+  "file_patterns": ["SYSTEM"],
+  "web": {
+    "input_label": "SYSTEM + SECURITY (and optional SAM) hives",
+    "workflow_help": "Drop the collected hives together here, SYSTEM and SECURITY (add SAM to also export local hashes), or the folder that holds them. Tab 1 and Unlock key are not used.",
+    "help": "Drop SYSTEM and SECURITY together (add SAM to also export local account hashes), or drop the folder that contains them. Each hive is found by name; SYSTEM is required, SECURITY yields DPAPI_SYSTEM, SAM is optional. Processing is local only.",
+    "fields": []
+  }
+}
